@@ -1,78 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sete e Meio</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
-    <button onclick="pedir()">Pedir outra Carta</button>
-    <button onclick="passar()">Passar Vez</button>
-    <div id="div_mensagem"></div>
+<div id="tela1">
+    <button class="bt_comeco" onclick="jogar()">Iniciar Jogo</button>
+</div>
+
+<div id="tela2" style="display: none;">
+    <div class="botoes">
+        <button onclick="pedir()">Pedir outra Carta</button>
+        <button onclick="passar()">Passar Vez</button>
+    </div>
+
+    <div id="div_mensagem" class="msg"></div>
+</div>
 </body>
+
 </html>
 
 <script>
 
-var cartasJogo = [
-
-{nome: 'Ás', nipe:'Copas', pontuação: 1},
-{nome: 'Ás', nipe:'Espadas', pontuação: 1},
-{nome: 'Ás', nipe:'Ouros', pontuação: 1},
-{nome: 'Ás', nipe:'Paus', pontuação: 1},
-
-{nome: '2', nipe:'Paus', pontuação: 2},
-{nome: '2', nipe:'Espadas', pontuação: 2},
-{nome: '2', nipe:'Ouros', pontuação: 2},
-{nome: '2', nipe:'Paus', pontuação: 2},
-
-{nome: '3', nipe:'Paus', pontuação: 3},
-{nome: '3', nipe:'Espadas', pontuação: 3},
-{nome: '3', nipe:'Ouros', pontuação: 3},
-{nome: '3', nipe:'Paus', pontuação: 3},
-
-{nome: '4', nipe:'Paus', pontuação: 4},
-{nome: '4', nipe:'Espadas', pontuação: 4},
-{nome: '4', nipe:'Ouros', pontuação: 4},
-{nome: '4', nipe:'Paus', pontuação: 4},
-
-{nome: '5', nipe:'Paus', pontuação: 5},
-{nome: '5', nipe:'Espadas', pontuação: 5},
-{nome: '5', nipe:'Ouros', pontuação: 5},
-{nome: '5', nipe:'Paus', pontuação: 5},
-
-{nome: '6', nipe:'Paus', pontuação: 6},
-{nome: '6', nipe:'Espadas', pontuação: 6},
-{nome: '6', nipe:'Ouros', pontuação: 6},
-{nome: '6', nipe:'Paus', pontuação: 6},
-
-{nome: '7', nipe:'Paus', pontuação: 7},
-{nome: '7', nipe:'Espadas', pontuação: 7},
-{nome: '7', nipe:'Ouros', pontuação: 7},
-{nome: '7', nipe:'Paus', pontuação: 7},
-
-{nome: 'Valete', nipe:'Copas', pontuação: 0.5},
-{nome: 'Valete', nipe:'Espadas', pontuação: 0.5},
-{nome: 'Valete', nipe:'Ouros', pontuação: 0.5},
-{nome: 'Valete', nipe:'Paus', pontuação: 0.5},
-
-{nome: 'Rainha', nipe:'Copas', pontuação: 0.5},
-{nome: 'Rainha', nipe:'Espadas', pontuação: 0.5},
-{nome: 'Rainha', nipe:'Ouros', pontuação: 0.5},
-{nome: 'Rainha', nipe:'Paus', pontuação: 0.5},
-
-{nome: 'Rei', nipe:'Copas', pontuação: 0.5},
-{nome: 'Rei', nipe:'Espadas', pontuação: 0.5},
-{nome: 'Rei', nipe:'Ouros', pontuação: 0.5},
-{nome: 'Rei', nipe:'Paus', pontuação: 0.5},
-
-]
-
-function pedir() {
-var aleatorio = Number(Math.random()).toFixed(1) * cartasJogo.length;
-
-div_mensagem.innerHTML = `${aleatorio}`;
+function jogar() {
+    tela1.style.display = 'none';
+    tela2.style.display = 'flex';
 }
+
+
+
+    var cartasJogo = [
+
+        { nome: 'Ás', nipe: 'Copas', pontuacao: 1 },
+        { nome: 'Ás', nipe: 'Espadas', pontuacao: 1 },
+        { nome: 'Ás', nipe: 'Ouros', pontuacao: 1 },
+        { nome: 'Ás', nipe: 'Paus', pontuacao: 1 },
+
+        { nome: '2', nipe: 'Copas', pontuacao: 2 },
+        { nome: '2', nipe: 'Espadas', pontuacao: 2 },
+        { nome: '2', nipe: 'Ouros', pontuacao: 2 },
+        { nome: '2', nipe: 'Paus', pontuacao: 2 },
+
+        { nome: '3', nipe: 'Copas', pontuacao: 3 },
+        { nome: '3', nipe: 'Espadas', pontuacao: 3 },
+        { nome: '3', nipe: 'Ouros', pontuacao: 3 },
+        { nome: '3', nipe: 'Paus', pontuacao: 3 },
+
+        { nome: '4', nipe: 'Copas', pontuacao: 4 },
+        { nome: '4', nipe: 'Espadas', pontuacao: 4 },
+        { nome: '4', nipe: 'Ouros', pontuacao: 4 },
+        { nome: '4', nipe: 'Paus', pontuacao: 4 },
+
+        { nome: '5', nipe: 'Copas', pontuacao: 5 },
+        { nome: '5', nipe: 'Espadas', pontuacao: 5 },
+        { nome: '5', nipe: 'Ouros', pontuacao: 5 },
+        { nome: '5', nipe: 'Paus', pontuacao: 5 },
+
+        { nome: '6', nipe: 'Copas', pontuacao: 6 },
+        { nome: '6', nipe: 'Espadas', pontuacao: 6 },
+        { nome: '6', nipe: 'Ouros', pontuacao: 6 },
+        { nome: '6', nipe: 'Paus', pontuacao: 6 },
+
+        { nome: '7', nipe: 'Copas', pontuacao: 7 },
+        { nome: '7', nipe: 'Espadas', pontuacao: 7 },
+        { nome: '7', nipe: 'Ouros', pontuacao: 7 },
+        { nome: '7', nipe: 'Paus', pontuacao: 7 },
+
+        { nome: 'Valete', nipe: 'Copas', pontuacao: 0.5 },
+        { nome: 'Valete', nipe: 'Espadas', pontuacao: 0.5 },
+        { nome: 'Valete', nipe: 'Ouros', pontuacao: 0.5 },
+        { nome: 'Valete', nipe: 'Paus', pontuacao: 0.5 },
+
+        { nome: 'Rainha', nipe: 'Copas', pontuacao: 0.5 },
+        { nome: 'Rainha', nipe: 'Espadas', pontuacao: 0.5 },
+        { nome: 'Rainha', nipe: 'Ouros', pontuacao: 0.5 },
+        { nome: 'Rainha', nipe: 'Paus', pontuacao: 0.5 },
+
+        { nome: 'Rei', nipe: 'Copas', pontuacao: 0.5 },
+        { nome: 'Rei', nipe: 'Espadas', pontuacao: 0.5 },
+        { nome: 'Rei', nipe: 'Ouros', pontuacao: 0.5 },
+        { nome: 'Rei', nipe: 'Paus', pontuacao: 0.5 },
+
+    ]
+    var pontuacaoJogador = 0;
+    var pontuacaoBanca = 0;
+
+    function pedir() {
+        var aleatorio = Number(Math.random() * cartasJogo.length).toFixed();
+        var cartaAtual = cartasJogo[aleatorio];
+        var nomeCarta = cartaAtual.nome;
+        var nipeCarta = cartaAtual.nipe;
+        pontuacaoJogador += cartaAtual.pontuacao;
+        pontuacaoBanca += cartaAtual.pontuacao;
+        console.log(cartaAtual + pontuacaoJogador)
+
+
+        if(pontuacaoJogador < 7.5){
+            div_mensagem.innerHTML += `(${pontuacaoJogador}) ${nomeCarta} de ${nipeCarta}<br>`;
+        
+        }
+        else if (pontuacaoJogador > 7.5) {
+            div_mensagem.innerHTML += `(${pontuacaoJogador}) ${nomeCarta} de ${nipeCarta}<br>`;
+            div_mensagem.innerHTML += `"O JOGADOR ESTOUROU! A banca venceu com ${pontuacaoBanca} pontos!`;
+
+        } else if (pontuacaoJogador == 7.5) {
+            div_mensagem.innerHTML += `(${pontuacaoJogador}) ${nomeCarta} de ${nipeCarta}<br>`;
+            div_mensagem.innerHTML += `SETE E MEIO! O jogador venceu com 7.5 pontos!`;
+        } else if (pontuacaoBanca > pontuacaoJogador) {
+            div_mensagem.innerHTML += `(${pontuacaoJogador}) ${nomeCarta} de ${nipeCarta}<br>`;
+            div_mensagem.innerHTML += `A BANCA ESTOUROU! O jogador venceu com ${pontuacaoJogador} pontos!`;
+        } else if (pontuacaoBanca == 7.5) {
+            div_mensagem.innerHTML += `(${pontuacaoJogador}) ${nomeCarta} de ${nipeCarta}<br>`;
+            div_mensagem.innerHTML += `SETE E MEIO! A banca venceu com 7.5 pontos!`;
+        }
+
+
+
+    }
+
+    function passar() {
+        var aleatorio = Number(Math.random() * cartasJogo.length).toFixed();
+        var cartaAtual = cartasJogo[aleatorio];
+        var nomeCarta = cartaAtual.nome;
+        var nipeCarta = cartaAtual.nipe;
+        pontuacaoJogador += cartaAtual.pontuacao;
+        pontuacaoBanca += cartaAtual.pontuacao;
+        console.log(cartaAtual + pontuacaoJogador)
+
+
+        if(pontuacaoBanca < 7){
+            div_mensagem.innerHTML += `(${pontuacaoBanca}) ${nomeCarta} de ${nipeCarta}<br>`;
+            passar();
+        }
+        else if (pontuacaoBanca > 7.5) {
+            div_mensagem.innerHTML += `(${pontuacaoBanca}) ${nomeCarta} de ${nipeCarta}<br>`;
+            div_mensagem.innerHTML += `"O JOGADOR ESTOUROU! A banca venceu com ${pontuacaoBanca} pontos!`;
+        } else if (pontuacaoBanca > 7) {
+            fim();
+        } else if (pontuacaoBanca > pontuacaoBanca) {
+            div_mensagem.innerHTML += `(${pontuacaoBanca}) ${nomeCarta} de ${nipeCarta}<br>`;
+            div_mensagem.innerHTML += `A BANCA ESTOUROU! O jogador venceu com ${pontuacaoBanca} pontos!`;
+        } else if (pontuacaoBanca == 7.5) {
+            div_mensagem.innerHTML += `(${pontuacaoBanca}) ${nomeCarta} de ${nipeCarta}<br>`;
+            div_mensagem.innerHTML += `SETE E MEIO! A banca venceu com 7.5 pontos!`;
+        }
+    }
+
+    function fim(){
+        if(pontuacaoBanca < pontuacaoJogador){
+            div_mensagem.innerHTML += `A Banca Venceu com ${pontuacaoBanca} pontos!`
+        }else{
+            div_mensagem.innerHTML += `o Jogador Venceu com ${pontuacaoJogador} pontos!`
+        }
+    }
 
 </script>
